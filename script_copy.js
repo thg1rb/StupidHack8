@@ -107,5 +107,5 @@ if (!localStorage.getItem("sheepState")) {
 }
 
 // Add event listener for reset button
-document.getElementById('resetButton').addEventListener('click', resetSheep);
+document.querySelector('.resetButton').addEventListener('click', resetSheep);
 
