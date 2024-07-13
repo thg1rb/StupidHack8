@@ -21,8 +21,11 @@ body {
     margin: 0;
 }
 
+#resetButton {
+    cursor: pointer;
+}
+
 #sheepContainer {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;

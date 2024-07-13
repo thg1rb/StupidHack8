@@ -93,7 +93,17 @@ function resetSheep() {
     sheepContainer.innerHTML = '';
     localStorage.removeItem('sheepState');
     localStorage.removeItem('sheepCount');
+
+    // Load the saved state of the sheep
     loadSheepState();
+
+    // Create new sheep if there is no saved state
+    if (!localStorage.getItem("sheepState")) {
+        for (let i = 0; i < 1000; i++) {
+            createSheep();
+        }
+    }
+    
 }
 
 // Load the saved state of the sheep
@@ -107,5 +117,4 @@ if (!localStorage.getItem("sheepState")) {
 }
 
 // Add event listener for reset button
-document.querySelector('.resetButton').addEventListener('click', resetSheep);
-
+document.getElementById('resetButton').addEventListener('click', resetSheep);
