@@ -52,7 +52,7 @@ function createSheep(top, left, width, src) {
 }
 
 function playRandomSheepSound() {
-    const randomSound = sheepSounds[Math.floor(Math.random() * sheepSounds.length)];
+    const randomSound = sheepSounds[Math.floor((Math.random() * 10) % sheepSounds.length)];
     const audio = new Audio(randomSound);
     audio.play();
 }
@@ -99,7 +99,7 @@ function resetSheep() {
 
     // Create new sheep if there is no saved state
     if (!localStorage.getItem("sheepState")) {
-        for (let i = 0; i < 1000; i++) {
+        for (let i = 0; i < 10; i++) {
             createSheep();
         }
     }
