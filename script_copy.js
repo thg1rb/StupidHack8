@@ -1,7 +1,8 @@
 let count = 0;
 const sheepSounds = [
     "./resources/sounds/Sheep1.mp3",
-    "./resources/sounds/Sheep2.mp3"
+    "./resources/sounds/Sheep2.mp3",
+    "./resources/sounds/Sheep3.mp3",
 ];
 
 const sheepImages = [
@@ -20,7 +21,7 @@ const sheepImages = [
     "./resources/images/sheep13.webp",
     "./resources/images/sheep14.webp",
     "./resources/images/sheep15.webp",
-    "./resources/images/sheep16.webp"
+    "./resources/images/sheep16.webp",
 ];
 
 function addSheep(event) {
