@@ -27,22 +27,24 @@ function addSheep(event) {
     count++;
     document.getElementById('sheepCount').innerText = count;
     playRandomSheepSound();
-    event.target.remove();  // ลบรูปแกะที่คลิกออกจาก DOM
-    createSheep(); // เพิ่มแกะใหม่
+    event.target.remove();  // Remove the clicked sheep from the DOM
+    saveSheepState();
 }
 
-function createSheep() {
+function createSheep(top, left, width, src) {
     let sheepImage = document.createElement('img');
-    sheepImage.src = './resources/images/sheep1.webp'; // ใช้ URL ของรูปภาพแกะที่คุณดาวน์โหลด
+    sheepImage.src = src || './resources/images/sheep' + 
+    ((parseInt(Math.random() * 100) % 16) + 1) + 
+    '.webp'; // Use the URL of the downloaded sheep image
     sheepImage.className = 'sheep';
-    
-    // สุ่มตำแหน่งของแกะ
-    sheepImage.style.top = Math.random() * 100 + '%';
-    sheepImage.style.left = Math.random() * 100 + '%';
 
-    // สุ่มขนาดของแกะ
-    let size = Math.random() * 50 + 30; // ขนาดตั้งแต่ 30px ถึง 80px
-    sheepImage.style.width = size + 'px';
+    // Randomize the position of the sheep
+    sheepImage.style.top = top || Math.random() * 100 + '%';
+    sheepImage.style.left = left || Math.random() * 100 + '%';
+
+    // Randomize the size of the sheep
+    let sizeValue = width || Math.random() * 50 + 30; // Size between 30px and 80px
+    sheepImage.style.width = sizeValue + 'px';
 
     sheepImage.style.animationDuration = (Math.random() * 5 + 5) + 's';
     sheepImage.onclick = addSheep;
@@ -55,7 +57,55 @@ function playRandomSheepSound() {
     audio.play();
 }
 
-// เริ่มต้นด้วยการสร้างแกะ 1000 ตัว
-for (let i = 0; i < 1000; i++) {
-    createSheep();
+function saveSheepState() {
+    const sheepContainer = document.getElementById('sheepContainer');
+    const sheepState = Array.from(sheepContainer.children).map(sheep => ({
+        src: sheep.src,
+        top: sheep.style.top,
+        left: sheep.style.left,
+        width: sheep.style.width.replace('px', '') // Remove 'px' before saving
+    }));
+    localStorage.setItem("sheepState", JSON.stringify(sheepState));
+    localStorage.setItem("sheepCount", count);
 }
+
+function loadSheepState() {
+    const sheepState = JSON.parse(localStorage.getItem("sheepState"));
+    const savedCount = localStorage.getItem("sheepCount");
+
+    if (sheepState) {
+        sheepState.forEach(sheep => {
+            createSheep(sheep.top, sheep.left, parseFloat(sheep.width), sheep.src);
+        });
+    }
+
+    if (savedCount) {
+        count = parseInt(savedCount);
+        document.getElementById('sheepCount').innerText = count;
+    }
+}
+
+function resetSheep() {
+    console.log("test");
+    count = 0;
+    document.getElementById('sheepCount').innerText = count;
+    const sheepContainer = document.getElementById('sheepContainer');
+    sheepContainer.innerHTML = '';
+    localStorage.removeItem('sheepState');
+    localStorage.removeItem('sheepCount');
+    loadSheepState();
+}
+
+// Load the saved state of the sheep
+loadSheepState();
+
+// Create new sheep if there is no saved state
+if (!localStorage.getItem("sheepState")) {
+    for (let i = 0; i < 1000; i++) {
+        createSheep();
+    }
+}
+
+// Add event listener for reset button
+document.getElementById('resetButton').addEventListener('click', resetSheep);
+
