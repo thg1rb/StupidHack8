@@ -159,3 +159,22 @@ if (!localStorage.getItem("sheepState")) {
 
 // Add event listener for reset button
 document.getElementById("resetButton").addEventListener("click", resetSheep);
+document.addEventListener('gesturestart', function (e) {
+  e.preventDefault();
+});
+
+// Prevent pinch to zoom
+document.addEventListener('touchmove', function(event) {
+  if (event.scale !== 1) { 
+      event.preventDefault(); 
+  }
+}, { passive: false });
+
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+  let now = new Date().getTime();
+  if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
