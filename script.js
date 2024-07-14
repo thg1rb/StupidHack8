@@ -42,6 +42,7 @@ function addSheep(event) {
   count++;
   document.getElementById("sheepCount").innerText = count;
   playRandomSheepSound();
+  createSheep();
 
   // 10% chance to redirect to a random YouTube song
   if (Math.random() < 0.01) {
@@ -113,6 +114,8 @@ function loadSheepState() {
 
 function resetSheep() {
   if (Math.random() < 0.5) {
+    const audio = new Audio("resources/sounds/grean.mp3");
+    audio.play();
     document.body.innerHTML = `
       <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
         <h1 style="font-size: 3rem; text-align: center;">
@@ -138,7 +141,7 @@ function resetSheep() {
 
   // Create new sheep if there is no saved state
   if (!localStorage.getItem("sheepState")) {
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 100; i++) {
       createSheep();
     }
   }
@@ -149,7 +152,7 @@ loadSheepState();
 
 // Create new sheep if there is no saved state
 if (!localStorage.getItem("sheepState")) {
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 100; i++) {
     createSheep();
   }
 }

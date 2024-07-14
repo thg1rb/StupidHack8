@@ -39,6 +39,7 @@ body {
 }
 
 #resetButton {
+    margin-top: 20px;
     cursor: pointer;
     color: white; 
     border: none;
