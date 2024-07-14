@@ -29,12 +29,12 @@ const sheepImages = [
 
 // YouTube songs array
 const youtubeSongs = [
-  // "https://youtu.be/TlRv2CmIngw?si=6HJC9llol1m75RfY", // PANDORA PARADOXXX
-  // "https://youtu.be/q26OmWO8ccg?si=9-CDZbxDehMr8Ish", // 系ぎて
-  // "https://youtu.be/Aaf7N_wfUMM?si=IOoddfoAyGhlnY_O", // sølips
-  // "https://youtu.be/xkuhv2PCqrw?si=Wpo-SfHLNGSAW4nh", // Raputa
-  // "https://youtu.be/xwdiTT-XM74?si=KcYyRsgy9iuE_wPv", // Apollo
-  // "https://youtu.be/s0K53t4dNyg?si=HXo-pwvFj_XZU6f-", // Aegleseeker
+  "https://youtu.be/TlRv2CmIngw?si=6HJC9llol1m75RfY", // PANDORA PARADOXXX
+  "https://youtu.be/q26OmWO8ccg?si=9-CDZbxDehMr8Ish", // 系ぎて
+  "https://youtu.be/Aaf7N_wfUMM?si=IOoddfoAyGhlnY_O", // sølips
+  "https://youtu.be/xkuhv2PCqrw?si=Wpo-SfHLNGSAW4nh", // Raputa
+  "https://youtu.be/xwdiTT-XM74?si=KcYyRsgy9iuE_wPv", // Apollo
+  "https://youtu.be/s0K53t4dNyg?si=HXo-pwvFj_XZU6f-", // Aegleseeker
   "https://youtu.be/ZZvIVRQ4E7I?si=fhuLEFJWqNevEeaG", // しかのこのこのここしたんたん
 ];
 
@@ -45,7 +45,7 @@ function addSheep(event) {
   createSheep();
 
   // 10% chance to redirect to a random YouTube song
-  if (Math.random() < 0.01) {
+  if (Math.random() < 0.05) {
     const randomSong =
       youtubeSongs[Math.floor(Math.random() * youtubeSongs.length)];
     window.open(randomSong, "_blank");
