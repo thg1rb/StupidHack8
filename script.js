@@ -111,16 +111,18 @@ function loadSheepState() {
 }
 
 function resetSheep() {
-  
-    if (Math.random() < 0.1) {
-      document.body.innerHTML = `
+  if (Math.random() < 0.5) {
+    document.body.innerHTML = `
       <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
         <h1 style="font-size: 3rem; text-align: center;">
           Go to sleep, little sheep...
+          <br>
+        <img src="https://cdn.discordapp.com/attachments/705650912882065418/1261904988796354610/image.png?ex=6694a81a&is=6693569a&hm=0a704cdff85386a59121a012be75d9b2ddd658e1d91a5a95f1ed9aa201e0b723&" alt="sleeping sheep" style="width: 100%; max-width: 500px; margin-top: 20px;">
+        <h4 style="font-size: 1rem; text-align: bottom;">But this is deer</h4>
         `;
-    
-      return;
-    }
+
+    return;
+  }
 
   count = 0;
   document.getElementById("sheepCount").innerText = count;
