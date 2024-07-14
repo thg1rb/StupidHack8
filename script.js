@@ -141,7 +141,7 @@ function resetSheep() {
 
   // Create new sheep if there is no saved state
   if (!localStorage.getItem("sheepState")) {
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 100; i++) {
       createSheep();
     }
   }
