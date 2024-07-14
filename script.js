@@ -34,6 +34,7 @@ const youtubeSongs = [
   // "https://youtu.be/Aaf7N_wfUMM?si=IOoddfoAyGhlnY_O", // sølips
   // "https://youtu.be/xkuhv2PCqrw?si=Wpo-SfHLNGSAW4nh", // Raputa
   // "https://youtu.be/xwdiTT-XM74?si=KcYyRsgy9iuE_wPv", // Apollo
+  // "https://youtu.be/s0K53t4dNyg?si=HXo-pwvFj_XZU6f-", // Aegleseeker
   "https://youtu.be/ZZvIVRQ4E7I?si=fhuLEFJWqNevEeaG", // しかのこのこのここしたんたん
 ];
 
