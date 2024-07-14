@@ -29,9 +29,12 @@ const sheepImages = [
 
 // YouTube songs array
 const youtubeSongs = [
-  "https://youtu.be/TlRv2CmIngw?si=6HJC9llol1m75RfY",
-  "https://youtu.be/q26OmWO8ccg?si=9-CDZbxDehMr8Ish",
-  "https://youtu.be/Aaf7N_wfUMM?si=IOoddfoAyGhlnY_O",
+  // "https://youtu.be/TlRv2CmIngw?si=6HJC9llol1m75RfY", // PANDORA PARADOXXX
+  // "https://youtu.be/q26OmWO8ccg?si=9-CDZbxDehMr8Ish", // 系ぎて
+  // "https://youtu.be/Aaf7N_wfUMM?si=IOoddfoAyGhlnY_O", // sølips
+  // "https://youtu.be/xkuhv2PCqrw?si=Wpo-SfHLNGSAW4nh", // Raputa
+  // "https://youtu.be/xwdiTT-XM74?si=KcYyRsgy9iuE_wPv", // Apollo
+  "https://youtu.be/ZZvIVRQ4E7I?si=fhuLEFJWqNevEeaG", // しかのこのこのここしたんたん
 ];
 
 function addSheep(event) {
