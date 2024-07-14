@@ -1,8 +1,11 @@
 body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh;  
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -21,10 +24,6 @@ body {
     margin: 0;
 }
 
-#resetButton {
-    cursor: pointer;
-}
-
 #sheepContainer {
     top: 0;
     left: 0;
@@ -37,6 +36,16 @@ body {
     height: auto;
     cursor: pointer;
     animation: float 10s infinite linear;
+}
+
+#resetButton {
+    cursor: pointer;
+    color: white; 
+    border: none;
+    background-color: rgb(29, 29, 29);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 700;
 }
 
 @keyframes float {

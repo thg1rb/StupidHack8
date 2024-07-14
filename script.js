@@ -40,7 +40,7 @@ function addSheep(event) {
   playRandomSheepSound();
 
   // 10% chance to redirect to a random YouTube song
-  if (Math.random() < 0.1) {
+  if (Math.random() < 0.01) {
     const randomSong =
       youtubeSongs[Math.floor(Math.random() * youtubeSongs.length)];
     window.open(randomSong, "_blank");
