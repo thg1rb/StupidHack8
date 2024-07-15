@@ -125,7 +125,8 @@ function resetSheep() {
         <h4 style="font-size: 1rem; text-align: bottom;">But this is deer</h4>
         `;
 
-    return;
+    count = 0;
+    document.getElementById("sheepCount").innerText = count;
   }
 
   count = 0;
