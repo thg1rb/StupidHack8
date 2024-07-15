@@ -114,6 +114,23 @@ function loadSheepState() {
 
 function resetSheep() {
   if (Math.random() < 0.5) {
+    count = 0;
+  document.getElementById("sheepCount").innerText = count;
+
+  const sheepContainer = document.getElementById("sheepContainer");
+  sheepContainer.innerHTML = "";
+  localStorage.removeItem("sheepState");
+  localStorage.removeItem("sheepCount");
+
+  // Load the saved state of the sheep
+  loadSheepState();
+
+  // Create new sheep if there is no saved state
+  if (!localStorage.getItem("sheepState")) {
+    for (let i = 0; i < 100; i++) {
+      createSheep();
+    }
+  }
     const audio = new Audio("resources/sounds/grean.mp3");
     audio.play();
     document.body.innerHTML = `
@@ -160,3 +177,22 @@ if (!localStorage.getItem("sheepState")) {
 
 // Add event listener for reset button
 document.getElementById("resetButton").addEventListener("click", resetSheep);
+document.addEventListener('gesturestart', function (e) {
+  e.preventDefault();
+});
+
+// Prevent pinch to zoom
+document.addEventListener('touchmove', function(event) {
+  if (event.scale !== 1) { 
+      event.preventDefault(); 
+  }
+}, { passive: false });
+
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+  let now = new Date().getTime();
+  if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
